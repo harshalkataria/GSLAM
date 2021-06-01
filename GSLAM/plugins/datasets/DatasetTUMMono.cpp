@@ -68,6 +68,7 @@ public:
 
     virtual std::string type() const {return "DatasetTUMMono";}
 
+
     virtual bool open(const string &dataset)
     {
         Svar var;
@@ -271,10 +272,11 @@ public:
     bool loadVignette(const string& vigFile)
     {
 #ifdef HAS_OPENCV
-        cv::Mat vigMat=cv::imread(vigFile, CV_LOAD_IMAGE_GRAYSCALE);
-        if(!vigMat.empty()&&(vigMat.type()==CV_8U||vigMat.type()==CV_16U))
+        cv::Mat vigMat=cv::imread(vigFile, cv::IMREAD_GRAYSCALE);
+        if(!vigMat.empty()&&(vigMat.type()==CV_8U||vigMat.type()==CV_16U))   //cv::Mat vigMat0(vigMat.rows, vigMat.cols, CV_MAKETYPE(CV_8U, vigMat.channels()), vigMat.data);
         {
-            _vignette=vigMat;
+            GSLAM::GImage vigMat;
+            _vignette = vigMat;
         }
         else return false;
 #endif
