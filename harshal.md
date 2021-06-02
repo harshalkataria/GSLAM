@@ -48,7 +48,7 @@ Installing dependencies: [Reference](https://ubuntuhandbook.org/index.php/2020/0
 Install version 2.4 only [Reference](https://bobcares.com/blog/how-to-install-opencv-on-ubuntu-20-04/)
 This installs opencv 2.4.13.7
 - Ceres: Optional, used by plugin Optimizer.\
-`sudo apt-get intall libceres-dev`
+`sudo apt-get install libceres-dev`
 - Compile and install with cmake:\
 `mkdir build;cd build;`\
 `cmake ..;make;sudo make install`
@@ -72,3 +72,5 @@ function_gslam_complete()
 }
 complete -F function_gslam_complete "gslam"
 ```
+To solve particular gtk error: Failed to load module "canberra-gtk-module"\
+`sudo apt install libcanberra-gtk-module`
